@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import { fetchReviews } from '../../servises/api';
+
 import s from './Reviews.module.css';
+
 const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
@@ -30,6 +32,7 @@ const Reviews = () => {
           </li>
         ))}
       </ul>
+      <Outlet />
     </div>
   );
 };

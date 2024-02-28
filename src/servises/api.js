@@ -42,6 +42,7 @@ export const fetchDetails = async (configParams = {}) => {
     throw error;
   }
 };
+// ==============================================
 export const fetchCast = async movieId => {
   try {
     const { data } = await axios.get(`/3/movie/${movieId}/credits`, {
@@ -64,6 +65,7 @@ export const fetchCast = async movieId => {
     throw error;
   }
 };
+// ==============================================
 export const fetchReviews = async movieId => {
   try {
     const { data } = await axios.get(`/3/movie/${movieId}/reviews`, {
@@ -77,6 +79,23 @@ export const fetchReviews = async movieId => {
     return data;
   } catch (error) {
     console.error('Error fetching movie cast:', error);
+    throw error;
+  }
+};
+// ===============================
+export const fetchSearchMovies = async searchTerm => {
+  try {
+    const { data } = await axios.get('/3/search/movie', {
+      params: {
+        api_key: apiKey,
+        language: 'en-US',
+        query: searchTerm,
+      },
+    });
+
+    return data.results;
+  } catch (error) {
+    console.error('Error fetching search results:', error);
     throw error;
   }
 };

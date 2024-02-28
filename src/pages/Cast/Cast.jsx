@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import { fetchCast } from '../../servises/api';
 import s from './Cast.module.css';
 
@@ -38,6 +38,7 @@ const Cast = () => {
           </li>
         ))}
       </ul>
+      <Outlet />
     </div>
   );
 };

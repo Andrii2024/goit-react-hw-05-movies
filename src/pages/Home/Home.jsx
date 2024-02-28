@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { fetchFilms } from '../../servises/api';
+
 import s from './Home.module.css';
+
 const Home = () => {
   const [trendingTodays, setTrendingTodays] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     const fetchTrendingTodays = async () => {
@@ -26,9 +29,13 @@ const Home = () => {
         <ul className={s.listHome}>
           {trendingTodays.map(movie => (
             <li key={movie.id}>
-              <NavLink className={s.navLink} to={`/${movie.id}`}>
+              <Link
+                className={s.navLink}
+                state={{ from: location }}
+                to={`/${movie.id}`}
+              >
                 {movie.title}
-              </NavLink>
+              </Link>
             </li>
           ))}
         </ul>

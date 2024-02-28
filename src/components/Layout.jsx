@@ -1,7 +1,9 @@
 import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Nav } from './Nav/Nav';
+
 import s from './Nav/Nav.module.css';
+
 export const Layout = () => {
   return (
     <div className={s.wrapperDiv}>

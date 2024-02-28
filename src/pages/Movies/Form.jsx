@@ -1,17 +1,21 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
+import s from './Movies.module.css';
+
 export const Form = ({ setSearchParams }) => {
-  const { register, handleSubmit, reset } = useForm();
-  const submit = data => {
-    console.log(data);
-    setSearchParams(data.queryStr ? { query: data.queryStr } : {});
-    reset();
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = data => {
+    setSearchParams(data.searchTerm);
   };
+
   return (
-    <form onSubmit={handleSubmit(submit)}>
-      <input {...register('queryStr')} type="text" />
-      <button>Search</button>
+    <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
+      <input className={s.input} {...register('searchTerm')} />
+      <button className={s.btn} type="submit">
+        Search
+      </button>
     </form>
   );
 };

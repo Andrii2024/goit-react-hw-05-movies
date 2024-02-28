@@ -1,12 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet, Link, useParams, useLocation } from 'react-router-dom';
-import s from './MovieDetails.module.css';
 import { fetchDetails } from 'servises/api';
+
+import s from './MovieDetails.module.css';
+
 const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
-  const gobackRef = useRef(location.state?.from || '/');
-
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
@@ -26,10 +26,15 @@ const MovieDetails = () => {
     return <div>Loading...</div>;
   }
 
+  const isHomeSearch = location.pathname === '/';
+  const isMoviesSearch = location.pathname === '/movies';
+
+  const goBackLink = isHomeSearch ? '/' : isMoviesSearch ? '/movies' : '/';
+
   return (
     <div>
       <h2>Movie Details</h2>
-      <Link className={s.linkDetail} to={gobackRef.current}>
+      <Link className={s.linkDetail} to={goBackLink}>
         Go back
       </Link>
       <div className={s.wrapper}>
@@ -38,13 +43,16 @@ const MovieDetails = () => {
             <img src={movie.image} alt={movie.title} />
           </div>
           <h2>{movie.title}</h2>
-          <p>{movie.overview}</p>
-          <p>
-            <span>Genres:</span> {movie.genres}
-          </p>
-          <p>
-            <span>User Score:</span> {movie.userScore}
-          </p>
+          <div className={s.wrapper}>
+            <p>{movie.overview}</p>
+            <p>
+              <span>Genres:</span>
+              {movie.genres}
+            </p>
+            <p>
+              <span>User Score:</span> {movie.userScore}
+            </p>
+          </div>
         </div>
         <nav>
           <ul className={s.listDetails}>
