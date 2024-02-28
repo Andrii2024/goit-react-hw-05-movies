@@ -1,0 +1,25 @@
+.navLink {
+  font-size: 1.3rem;
+  color: rgb(220, 234, 229);
+  font-weight: bold;
+  transition: color 0.3s ease;
+  &:hover {
+    color: rgb(33, 241, 123);
+    box-shadow: 1px 2px 2px 3px rgb(33, 241, 123);
+    transform: scale(1.1);
+    padding: 5px;
+    border-radius: 4px;
+  }
+}
+.wrapper {
+  padding: 15px;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  box-shadow: 1px 2px 2px 3px rgb(235, 239, 236);
+}
+.listHome {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+}

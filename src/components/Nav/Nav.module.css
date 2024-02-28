@@ -1,0 +1,56 @@
+.wrapperDiv {
+  /* opacity: 0.8; */
+  padding: 20px;
+
+  background-image: url(../../../assets/milky-way.jpg);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 20px;
+  border-radius: 7px;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  align-items: center;
+  background-image: url(../../../assets/starry-sky.jpg);
+  border-bottom: 1px solid snow;
+  box-shadow: 1px 2px 2px 3px aliceblue;
+}
+.outletWrapper {
+  padding: 0 15px;
+  color: aliceblue;
+}
+
+.navList {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+
+  li {
+    a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      padding: 6px 15px;
+      border-radius: 4px;
+      box-shadow: 1px 2px 2px 3px aliceblue;
+      &:hover {
+        color: rgb(33, 241, 123);
+        box-shadow: 1px 2px 2px 3px rgb(33, 241, 123);
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+.navItem {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    color: red;
+  }
+}

@@ -1,0 +1,15 @@
+.wrapper {
+  padding: 6px 15px;
+  border-radius: 4px;
+  box-shadow: 1px 2px 2px 3px aliceblue;
+}
+.itemRev {
+  padding: 3px 15px;
+  border-radius: 4px;
+  border: 1 px solid snow;
+  font-size: 1.3rem;
+}
+.actorName {
+  color: rgb(33, 241, 123);
+  font-weight: bold;
+}
