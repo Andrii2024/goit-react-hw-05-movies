@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Outlet, Link, useParams, useLocation } from 'react-router-dom';
 import { fetchDetails } from 'servises/api';
 
@@ -7,6 +7,7 @@ import s from './MovieDetails.module.css';
 const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
+  const goBackRef = useRef(location.state?.from || '/movies');
   // const searchParam = location.state.searchParam;
   const [movie, setMovie] = useState(null);
 
@@ -27,17 +28,17 @@ const MovieDetails = () => {
     return <div>Loading...</div>;
   }
 
-  const isHomeSearch = location.pathname === '/';
-  const isMoviesSearch = location.pathname === '/movies';
+  // const isHomeSearch = location.pathname === '/';
+  // const isMoviesSearch = location.pathname === '/movies';
 
-  const goBackLink = isHomeSearch ? '/' : isMoviesSearch ? '/movies' : '/';
+  // const goBackLink = isHomeSearch ? '/' : isMoviesSearch ? '/movies' : '/';
 
   return (
     <div>
       <h2>Movie Details</h2>
       <Link
         className={s.linkDetail}
-        to={{ pathname: goBackLink, search: location.search }}
+        to={goBackRef.current}
         // state={searchParam}
       >
         Go back
