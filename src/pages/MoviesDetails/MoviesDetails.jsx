@@ -7,6 +7,7 @@ import s from './MovieDetails.module.css';
 const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
+  // const searchParam = location.state.searchParam;
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
@@ -34,7 +35,11 @@ const MovieDetails = () => {
   return (
     <div>
       <h2>Movie Details</h2>
-      <Link className={s.linkDetail} to={goBackLink}>
+      <Link
+        className={s.linkDetail}
+        to={{ pathname: goBackLink, search: location.search }}
+        // state={searchParam}
+      >
         Go back
       </Link>
       <div className={s.wrapper}>

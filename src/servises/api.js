@@ -17,9 +17,9 @@ export const fetchFilms = async (configParams = {}) => {
     return data;
   } catch (error) {
     console.error('Error fetching trending movies:', error);
-    throw error;
   }
 };
+// ============================================
 export const fetchDetails = async (configParams = {}) => {
   try {
     const { data } = await axios.get(`/3/movie/${configParams.movie_id}`, {
@@ -39,7 +39,6 @@ export const fetchDetails = async (configParams = {}) => {
     return movieDetails;
   } catch (error) {
     console.error('Error fetching movie details:', error);
-    throw error;
   }
 };
 // ==============================================
@@ -62,7 +61,6 @@ export const fetchCast = async movieId => {
     }));
   } catch (error) {
     console.error('Error fetching movie cast:', error);
-    throw error;
   }
 };
 // ==============================================
@@ -79,7 +77,6 @@ export const fetchReviews = async movieId => {
     return data;
   } catch (error) {
     console.error('Error fetching movie cast:', error);
-    throw error;
   }
 };
 // ===============================
@@ -96,6 +93,5 @@ export const fetchSearchMovies = async searchTerm => {
     return data.results;
   } catch (error) {
     console.error('Error fetching search results:', error);
-    throw error;
   }
 };

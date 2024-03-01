@@ -31,8 +31,8 @@ const Home = () => {
             <li key={movie.id}>
               <Link
                 className={s.navLink}
-                state={{ from: location }}
-                to={`/${movie.id}`}
+                state={{ searchParam: `${movie.id}` }}
+                to={`/movies/${movie.id}`}
               >
                 {movie.title}
               </Link>
