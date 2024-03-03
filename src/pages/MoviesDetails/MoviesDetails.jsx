@@ -8,7 +8,7 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
   const goBackRef = useRef(location.state?.from || '/movies');
-  // const searchParam = location.state.searchParam;
+
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
@@ -27,11 +27,6 @@ const MovieDetails = () => {
   if (!movie) {
     return <div>Loading...</div>;
   }
-
-  // const isHomeSearch = location.pathname === '/';
-  // const isMoviesSearch = location.pathname === '/movies';
-
-  // const goBackLink = isHomeSearch ? '/' : isMoviesSearch ? '/movies' : '/';
 
   return (
     <div>
